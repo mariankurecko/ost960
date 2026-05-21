@@ -124,8 +124,8 @@ figure { margin: 0; }
 @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
 
 /* Hero canvas */
-#heroCanvas { position: absolute; right: clamp(-80px, 2vw, 60px); top: 50%; transform: translateY(-48%); z-index: 1; pointer-events: none; opacity: 0.85; width: clamp(320px,44vw,680px); height: clamp(320px,44vw,680px); }
-@media (max-width: 900px) { #heroCanvas { right: -30%; top: auto; bottom: 4rem; transform: none; opacity: 0.25; width: 80vw; height: 80vw; } }
+#heroCanvas { position: absolute; right: clamp(-80px, 2vw, 60px); top: 50%; transform: translateY(-48%); z-index: 1; pointer-events: none; opacity: 0.85; width: clamp(230px,31vw,490px); height: clamp(310px,42vw,660px); }
+@media (max-width: 900px) { #heroCanvas { right: -20%; top: auto; bottom: 4rem; transform: none; opacity: 0.25; width: 58vw; height: 78vw; } }
 @media (max-width: 560px) { #heroCanvas { display: none; } }
 
 /* ═══════════════════════════════════════════════════════════

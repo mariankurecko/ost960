@@ -157,7 +157,10 @@
   if (!canvas) return;
 
   const ctx = canvas.getContext('2d');
-  let size, cx, cy, R, raf;
+  // cW/cH = canvas logical size (non-square O letterform)
+  // oW/oH = half-extents of the O rounded-rect ring
+  // oRad  = corner radius of the O shape
+  let cW, cH, cx, cy, R, oW, oH, oRad, raf;
   let particles = [];
 
   document.fonts.ready.then(function () {
@@ -167,14 +170,21 @@
 
   function setup() {
     const rect = canvas.getBoundingClientRect();
-    size = Math.round(rect.width || 500);
+    cW = Math.round(rect.width  || 420);
+    cH = Math.round(rect.height || 560);
     const dpr = window.devicePixelRatio || 1;
-    canvas.width  = size * dpr;
-    canvas.height = size * dpr;
+    canvas.width  = cW * dpr;
+    canvas.height = cH * dpr;
     ctx.scale(dpr, dpr);
-    cx = size / 2;
-    cy = size / 2;
-    R  = size * 0.42;
+    cx = cW / 2;
+    cy = cH / 2;
+    // R drives tick-mark radii and orbiting dots — use shorter half-dimension
+    R  = Math.min(cW, cH) * 0.44;
+    // O-shape half-extents: nearly fills the canvas with a little padding
+    oW   = cW * 0.46;
+    oH   = cH * 0.46;
+    // Corner radius — large enough for a bold rounded-O feel
+    oRad = Math.min(oW, oH) * 0.54;
     buildParticles();
   }
 
@@ -186,7 +196,7 @@
 
   function buildParticles() {
     particles = [];
-    const count = Math.round(size * 0.12);
+    const count = Math.round((cW + cH) * 0.06);
     for (var i = 0; i < count; i++) {
       particles.push({
         angle:   Math.random() * Math.PI * 2,
@@ -204,94 +214,124 @@
     draw(ts * 0.001);
   }
 
-  function draw(t) {
-    ctx.clearRect(0, 0, size, size);
+  // Helper: draw a centred rounded-rect path at (cx,cy) with half-extents hw×hh
+  // and corner radius rad, scaled by factor s, with optional rotation.
+  function oPath(hw, hh, rad) {
+    ctx.roundRect(-hw, -hh, hw * 2, hh * 2, rad);
+  }
 
-    // Outer dashed ring — CW
+  function draw(t) {
+    ctx.clearRect(0, 0, cW, cH);
+
+    // ── O-shape clip — everything is masked to the letterform ──────────────
+    // Build clip path in raw canvas coords (no active translate) so subsequent
+    // save/translate(cx,cy)/restore blocks don't accumulate an extra offset.
+    ctx.save();
+    ctx.beginPath();
+    ctx.roundRect(cx - oW, cy - oH, oW * 2, oH * 2, oRad);
+    ctx.clip();
+
+    // Outer dashed O-ring — CW
     ctx.save();
     ctx.translate(cx, cy); ctx.rotate(t * 0.11);
-    ctx.strokeStyle = 'rgba(201,74,28,0.28)'; ctx.lineWidth = 1; ctx.setLineDash([7,15]);
-    ctx.beginPath(); ctx.arc(0,0,R,0,Math.PI*2); ctx.stroke();
+    ctx.strokeStyle = 'rgba(201,74,28,0.28)'; ctx.lineWidth = 1.5; ctx.setLineDash([7,15]);
+    ctx.beginPath(); oPath(oW, oH, oRad); ctx.stroke();
     ctx.setLineDash([]); ctx.restore();
 
-    // Tick ring — CCW
+    // Tick ring — CCW (tick marks arranged on the O outline via parametric walk)
     ctx.save();
-    ctx.translate(cx,cy); ctx.rotate(-t * 0.055);
+    ctx.translate(cx, cy); ctx.rotate(-t * 0.055);
     for (var i = 0; i < 60; i++) {
-      var a     = (i/60)*Math.PI*2;
+      var a     = (i / 60) * Math.PI * 2;
       var major = i % 5 === 0;
-      var inner = major ? R*0.77 : R*0.83;
+      // Map angle to a point on the outer O ellipse approximation for tick positions
+      var tx88  = Math.cos(a) * oW * 0.88;
+      var ty88  = Math.sin(a) * oH * 0.88;
+      var txIn  = Math.cos(a) * (major ? oW * 0.77 : oW * 0.83);
+      var tyIn  = Math.sin(a) * (major ? oH * 0.77 : oH * 0.83);
       ctx.strokeStyle = major ? 'rgba(201,74,28,0.55)' : 'rgba(240,230,211,0.1)';
       ctx.lineWidth   = major ? 1.5 : 0.75;
       ctx.beginPath();
-      ctx.moveTo(Math.cos(a)*inner,    Math.sin(a)*inner);
-      ctx.lineTo(Math.cos(a)*R*0.88,   Math.sin(a)*R*0.88);
+      ctx.moveTo(txIn, tyIn);
+      ctx.lineTo(tx88, ty88);
       ctx.stroke();
     }
+    // Inner guide O-ring for ticks
     ctx.strokeStyle = 'rgba(240,230,211,0.06)'; ctx.lineWidth = 1;
-    ctx.beginPath(); ctx.arc(0,0,R*0.88,0,Math.PI*2); ctx.stroke();
+    ctx.beginPath(); oPath(oW * 0.88, oH * 0.88, oRad * 0.88); ctx.stroke();
     ctx.restore();
 
-    // Middle dashed — CW
+    // Middle dashed O-ring — CW
     ctx.save();
-    ctx.translate(cx,cy); ctx.rotate(t*0.04);
-    ctx.strokeStyle='rgba(240,230,211,0.05)'; ctx.lineWidth=1; ctx.setLineDash([4,20]);
-    ctx.beginPath(); ctx.arc(0,0,R*0.63,0,Math.PI*2); ctx.stroke();
+    ctx.translate(cx, cy); ctx.rotate(t * 0.04);
+    ctx.strokeStyle = 'rgba(240,230,211,0.05)'; ctx.lineWidth = 1; ctx.setLineDash([4,20]);
+    ctx.beginPath(); oPath(oW * 0.63, oH * 0.63, oRad * 0.63); ctx.stroke();
     ctx.setLineDash([]); ctx.restore();
 
-    // Cardinal spokes
+    // Cardinal spokes (unchanged — radial lines, naturally clipped)
     ctx.save();
-    ctx.translate(cx,cy); ctx.rotate(t*0.035);
-    ctx.strokeStyle='rgba(240,230,211,0.045)'; ctx.lineWidth=1;
-    for (var i=0;i<4;i++) {
-      var a=(i/4)*Math.PI*2;
+    ctx.translate(cx, cy); ctx.rotate(t * 0.035);
+    ctx.strokeStyle = 'rgba(240,230,211,0.045)'; ctx.lineWidth = 1;
+    for (var i = 0; i < 4; i++) {
+      var a = (i / 4) * Math.PI * 2;
       ctx.beginPath();
-      ctx.moveTo(Math.cos(a)*R*0.18, Math.sin(a)*R*0.18);
-      ctx.lineTo(Math.cos(a)*R*0.6,  Math.sin(a)*R*0.6);
+      ctx.moveTo(Math.cos(a) * R * 0.18, Math.sin(a) * R * 0.18);
+      ctx.lineTo(Math.cos(a) * R * 0.6,  Math.sin(a) * R * 0.6);
       ctx.stroke();
     }
     ctx.restore();
 
-    // Orbiting dots — outer
-    for (var i=0;i<10;i++) {
-      var a    = (i/10)*Math.PI*2 + t*0.22;
-      var p    = 0.35 + Math.sin(t*2.8+i*0.9)*0.28;
-      ctx.fillStyle = 'rgba(201,74,28,'+p+')';
+    // Orbiting dots — outer (follow the O ellipse)
+    for (var i = 0; i < 10; i++) {
+      var a  = (i / 10) * Math.PI * 2 + t * 0.22;
+      var p  = 0.35 + Math.sin(t * 2.8 + i * 0.9) * 0.28;
+      ctx.fillStyle = 'rgba(201,74,28,' + p + ')';
       ctx.beginPath();
-      ctx.arc(cx+Math.cos(a)*R*0.88, cy+Math.sin(a)*R*0.88, i%3===0?2.8:1.5, 0, Math.PI*2);
+      ctx.arc(
+        cx + Math.cos(a) * oW * 0.88,
+        cy + Math.sin(a) * oH * 0.88,
+        i % 3 === 0 ? 2.8 : 1.5, 0, Math.PI * 2
+      );
       ctx.fill();
     }
     // Counter dots — inner
-    for (var i=0;i<6;i++) {
-      var a=(i/6)*Math.PI*2 - t*0.18;
-      ctx.fillStyle='rgba(240,230,211,0.12)';
+    for (var i = 0; i < 6; i++) {
+      var a = (i / 6) * Math.PI * 2 - t * 0.18;
+      ctx.fillStyle = 'rgba(240,230,211,0.12)';
       ctx.beginPath();
-      ctx.arc(cx+Math.cos(a)*R*0.63, cy+Math.sin(a)*R*0.63, 1.2, 0, Math.PI*2);
+      ctx.arc(
+        cx + Math.cos(a) * oW * 0.63,
+        cy + Math.sin(a) * oH * 0.63,
+        1.2, 0, Math.PI * 2
+      );
       ctx.fill();
     }
 
     // Drift particles
-    particles.forEach(function(p){
+    particles.forEach(function (p) {
       p.angle  += p.drift;
-      p.radius += p.radialV*0.4;
-      if (p.radius>R*0.55||p.radius<2) p.radialV*=-1;
-      ctx.fillStyle='rgba(201,74,28,'+p.alpha+')';
+      p.radius += p.radialV * 0.4;
+      if (p.radius > R * 0.55 || p.radius < 2) p.radialV *= -1;
+      ctx.fillStyle = 'rgba(201,74,28,' + p.alpha + ')';
       ctx.beginPath();
-      ctx.arc(cx+Math.cos(p.angle)*p.radius, cy+Math.sin(p.angle)*p.radius, p.sz, 0, Math.PI*2);
+      ctx.arc(cx + Math.cos(p.angle) * p.radius, cy + Math.sin(p.angle) * p.radius, p.sz, 0, Math.PI * 2);
       ctx.fill();
     });
 
     // Centre pulse
-    var pulse = 0.5+Math.sin(t*2.2)*0.5;
-    ctx.fillStyle='rgba(201,74,28,'+(0.4+pulse*0.35)+')';
+    var pulse = 0.5 + Math.sin(t * 2.2) * 0.5;
+    ctx.fillStyle = 'rgba(201,74,28,' + (0.4 + pulse * 0.35) + ')';
     ctx.beginPath();
-    ctx.arc(cx, cy, 2.5+pulse*3, 0, Math.PI*2);
+    ctx.arc(cx, cy, 2.5 + pulse * 3, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle='rgba(201,74,28,'+(0.04+pulse*0.06)+')';
-    ctx.lineWidth=1;
+    ctx.strokeStyle = 'rgba(201,74,28,' + (0.04 + pulse * 0.06) + ')';
+    ctx.lineWidth = 1;
     ctx.beginPath();
-    ctx.arc(cx, cy, R*0.22+pulse*R*0.04, 0, Math.PI*2);
+    ctx.arc(cx, cy, R * 0.22 + pulse * R * 0.04, 0, Math.PI * 2);
     ctx.stroke();
+
+    // End O-shape clip
+    ctx.restore();
   }
 
 })();
