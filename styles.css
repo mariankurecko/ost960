@@ -884,6 +884,125 @@ figure { margin: 0; }
 }
 
 /* ═══════════════════════════════════════════════════════════
+   PRIESTOR DNES — real construction gallery
+═══════════════════════════════════════════════════════════ */
+.section-real {
+  background: var(--ink-soft);
+  padding-bottom: 0;
+}
+.real-intro {
+  font-size: clamp(0.9375rem, 1.5vw, 1.125rem);
+  color: var(--paper-muted);
+  max-width: 560px;
+  margin-bottom: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.7;
+}
+
+/* Fluid editorial grid — no padding, edge-to-edge */
+.real-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  background: var(--ink);
+  margin-top: 0;
+}
+
+/* Layout variants */
+.real-item--wide    { grid-column: span 2; }
+.real-item--portrait{ grid-column: span 1; }
+.real-item--third   { grid-column: span 1; }
+
+@media (max-width: 900px) {
+  .real-grid { grid-template-columns: repeat(2, 1fr); }
+  .real-item--wide    { grid-column: span 2; }
+  .real-item--portrait{ grid-column: span 1; }
+  .real-item--third   { grid-column: span 1; }
+}
+@media (max-width: 560px) {
+  .real-grid { grid-template-columns: 1fr; }
+  .real-item--wide,
+  .real-item--portrait,
+  .real-item--third { grid-column: span 1; }
+}
+
+/* Each figure */
+.real-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-mid);
+  cursor: default;
+}
+.real-item img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              filter 0.4s ease;
+  filter: saturate(0.75) brightness(0.9);
+}
+.real-item--wide img    { aspect-ratio: 16/10; }
+.real-item--portrait img{ aspect-ratio: 3/4; }
+.real-item--third img   { aspect-ratio: 4/3; }
+
+@media (max-width: 560px) {
+  .real-item img { aspect-ratio: 4/3 !important; min-height: 0; }
+}
+
+.real-item:hover img {
+  transform: scale(1.04);
+  filter: saturate(1) brightness(0.95);
+}
+
+/* Caption bar — slides up on hover */
+.real-item figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to top, rgba(12,11,10,0.88) 0%, transparent 100%);
+  font-family: var(--ff-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper-dim);
+  transform: translateY(4px);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.real-item:hover figcaption,
+.real-item:focus-within figcaption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Date / status note at bottom */
+.real-note {
+  padding-block: 1.5rem 2rem;
+  font-family: var(--ff-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper-muted);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.real-note::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--heat);
+  flex-shrink: 0;
+}
+.real-note-label {
+  color: var(--heat);
+  margin-right: 0.25rem;
+}
+
+/* ═══════════════════════════════════════════════════════════
    FOCUS STYLES
 ═══════════════════════════════════════════════════════════ */
 :focus-visible {
