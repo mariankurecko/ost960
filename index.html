@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OST 960 — Odovzdávacia stanica tepla Bratislava</title>
-  <meta name="description" content="OST 960 je pripravovaný nezávislý kultúrny priestor v Karlovej Vsi. Industriálny objekt chceme premeniť na galériu, komunitné miesto a otvorenú platformu pre subkultúrne umenie v Bratislave.">
+  <meta name="description" content="OST 960 je pripravovaný nezávislý kultúrny priestor v Karlovej Vsi, Bratislava. Industriálny objekt premieňame na galériu, komunitné miesto a platformu pre subkultúrne umenie.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -12,25 +12,22 @@
 </head>
 <body>
 
-  <!-- GRAIN OVERLAY -->
   <div class="grain" aria-hidden="true"></div>
 
   <!-- ─── NAVIGATION ─── -->
   <nav id="nav" role="navigation" aria-label="Hlavná navigácia">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo" aria-label="OST 960 — domov">OST 960</a>
-
       <button class="nav-toggle" id="navToggle" aria-label="Otvoriť menu" aria-expanded="false" aria-controls="navLinks">
         <span class="toggle-bar"></span>
         <span class="toggle-bar"></span>
       </button>
-
       <ul class="nav-links" id="navLinks" role="list">
         <li><a href="#projekt">Projekt</a></li>
-        <li><a href="#dnes">Priestor dnes</a></li>
-        <li><a href="#priestor">Vízia</a></li>
+        <li><a href="#priestor-dnes">Priestor dnes</a></li>
+        <li><a href="#pred-a-po">Pred &amp; po</a></li>
+        <li><a href="#vizia">Vízia</a></li>
         <li><a href="#program">Program</a></li>
-        <li><a href="#podpora">Podpora</a></li>
         <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
       </ul>
     </div>
@@ -38,7 +35,9 @@
 
   <main>
 
-    <!-- ─── HERO ─── -->
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO
+    ═══════════════════════════════════════════════════════════ -->
     <section id="hero" class="hero">
       <div class="hero-inner">
         <div class="hero-eyebrow">
@@ -46,54 +45,41 @@
           <span class="eyebrow-text">Projekt v príprave · Karlova Ves, Bratislava</span>
           <span class="eyebrow-line"></span>
         </div>
-
         <h1 class="hero-title" aria-label="OST 960">
           <span class="hero-ost">OST</span>
           <span class="hero-num">960</span>
         </h1>
-
         <p class="hero-subtitle">Odovzdávacia stanica tepla Bratislava</p>
-
         <div class="hero-rule" aria-hidden="true"></div>
-
-        <p class="hero-claim">
-          Kedysi odovzdávala teplo.<br>
-          Dnes môže odovzdávať energiu kultúre.
-        </p>
-
-        <p class="hero-desc">
-          OST 960 je pripravovaný nezávislý kultúrny priestor v Karlovej Vsi. Industriálny objekt chceme premeniť na galériu, komunitné miesto a otvorenú platformu pre subkultúrne, mestské a nezávislé umenie v Bratislave.
-        </p>
-
+        <p class="hero-claim">Kedysi odovzdávala teplo.<br>Dnes môže odovzdávať energiu kultúre.</p>
+        <p class="hero-desc">OST 960 je pripravovaný nezávislý kultúrny priestor v Karlovej Vsi. Industriálny objekt chceme premeniť na galériu, komunitné miesto a otvorenú platformu pre subkultúrne, mestské a nezávislé umenie v Bratislave.</p>
         <div class="hero-actions">
-          <a href="#priestor" class="btn btn-primary">Pozrieť víziu priestoru</a>
-          <a href="#podpora" class="btn btn-ghost">Chcem podporiť projekt</a>
+          <a href="#priestor-dnes" class="btn btn-primary">Pozrieť priestor dnes</a>
+          <a href="#vizia" class="btn btn-ghost">Vízia OST 960</a>
         </div>
       </div>
-
       <canvas id="heroCanvas" aria-hidden="true"></canvas>
       <div class="hero-bg-num" aria-hidden="true">960</div>
-
       <a href="#projekt" class="hero-scroll" aria-label="Posunúť nadol">
         <span class="scroll-arrow" aria-hidden="true">↓</span>
         <span class="scroll-label">Viac</span>
       </a>
     </section>
 
-    <!-- ─── O PROJEKTE ─── -->
+    <!-- ═══════════════════════════════════════════════════════════
+         01 — O PROJEKTE
+    ═══════════════════════════════════════════════════════════ -->
     <section id="projekt" class="section">
       <div class="container">
         <header class="section-header">
           <span class="sec-num" aria-hidden="true">01</span>
           <span class="sec-label">O projekte</span>
         </header>
-
         <div class="about-grid">
           <div class="about-text">
             <p class="text-large">OST 960 vzniká ako neziskový kultúrny projekt s cieľom oživiť priestor bývalej odovzdávacej stanice tepla a sprístupniť ho verejnosti.</p>
             <p class="text-body">Chceme vytvoriť miesto, kde sa stretáva umenie, komunita, experiment, lokálna scéna a ľudia, ktorí hľadajú kultúru mimo mainstreamu.</p>
           </div>
-
           <dl class="about-meta">
             <div class="meta-row">
               <dt>Lokalita</dt>
@@ -116,111 +102,97 @@
       </div>
     </section>
 
-    <!-- ─── PRIESTOR DNES ─── -->
-    <section id="dnes" class="section section-real">
+    <!-- ═══════════════════════════════════════════════════════════
+         02 — PRIESTOR DNES (current state gallery, 12 photos)
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="priestor-dnes" class="section section-dark-alt">
       <div class="container">
         <header class="section-header">
           <span class="sec-num" aria-hidden="true">02</span>
           <span class="sec-label">Priestor dnes</span>
         </header>
-        <p class="real-intro">Toto je skutočný priestor. Práve sa buduje. Každý záber je autentický dokument premeny industriálneho objektu na kultúrne miesto.</p>
-      </div>
+        <p class="section-intro">Toto je skutočný priestor. Práve sa buduje. Každý záber je autentický dokument premeny industriálneho objektu na kultúrne miesto.</p>
 
-      <!-- Editorial photo grid -->
-      <div class="real-grid">
+        <div class="gallery-grid" id="galleryCurrentGrid">
 
-        <!-- Row 1: large + standard -->
-        <figure class="real-item real-item--wide">
-          <img src="images/ost960/real/r09-people.jpg"
-               alt="Prehľad hlavného priestoru OST 960 — ľudia pracujú, na stene emblem OST, lešenie pri oknách"
-               loading="lazy">
-          <figcaption>Hlavný priestor v premene</figcaption>
-        </figure>
+          <figure class="gallery-item gallery-item--wide" data-lightbox data-src="images/ost960/current/current-09-team.jpg" data-caption="Tím v priestore — OST 960 sa rodí">
+            <img src="images/ost960/current/current-09-team.jpg" alt="Ľudia pracujú v priestore OST 960, emblem na stene" loading="lazy">
+            <figcaption>Tím v priestore</figcaption>
+          </figure>
 
-        <figure class="real-item real-item--standard">
-          <img src="images/ost960/real/r05-astronaut.jpg"
-               alt="Figúra astronauta v ateliéri — neonové svetlo, pracovná atmosféra, štítok 6 na polici"
-               loading="lazy">
-          <figcaption>Ateliér — astronaut v priestore</figcaption>
-        </figure>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-11-founders.jpg" data-caption="Zakladatelia projektu v priestore OST 960">
+            <img src="images/ost960/current/current-11-founders.jpg" alt="Dvaja zakladatelia sedia v priestore, palec hore, emblem OST na stene" loading="lazy">
+            <figcaption>Zakladatelia projektu</figcaption>
+          </figure>
 
-        <!-- Row 2: three equal -->
-        <figure class="real-item real-item--third">
-          <img src="images/ost960/real/r06-mural.jpg"
-               alt="Farebná maľba cez celú stenu vedľa klenby — divoký ilustratívny motív"
-               loading="lazy">
-          <figcaption>Maľba na stene</figcaption>
-        </figure>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-01-lights.jpg" data-caption="Inštalácia osvetlenia — oranžové potrubie, industriálny strop">
+            <img src="images/ost960/current/current-01-lights.jpg" alt="Pracovník na lešení inštaluje osvetlenie pod industriálnym stropom s oranžovým potrubím" loading="lazy">
+            <figcaption>Inštalácia osvetlenia</figcaption>
+          </figure>
 
-        <figure class="real-item real-item--third">
-          <img src="images/ost960/real/r04-arch.jpg"
-               alt="Pohľad cez klenbu do ateliéru s astronautom a umeleckými objektmi"
-               loading="lazy">
-          <figcaption>Klenba — prechod do ateliéru</figcaption>
-        </figure>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-10-panorama.jpg" data-caption="Panoráma — celkový pohľad na budovaný priestor">
+            <img src="images/ost960/current/current-10-panorama.jpg" alt="Celkový panoramatický pohľad na priestor počas výstavby" loading="lazy">
+            <figcaption>Panoráma priestoru</figcaption>
+          </figure>
 
-        <figure class="real-item real-item--third">
-          <img src="images/ost960/real/r03-entrance.jpg"
-               alt="Vstupná miestnosť s žltými rámami dverí — čistý priestor, farebná podlaha od práce"
-               loading="lazy">
-          <figcaption>Vstupný trakt</figcaption>
-        </figure>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-02-hall-wide.jpg" data-caption="Prehľad — hlavný priestor s klenbou a astronautom v pozadí">
+            <img src="images/ost960/current/current-02-hall-wide.jpg" alt="Hlavný priestor so sedačkami, klenbou a astronautom v pozadí" loading="lazy">
+            <figcaption>Hlavný priestor</figcaption>
+          </figure>
 
-        <!-- Row 3: standard + wide -->
-        <figure class="real-item real-item--standard">
-          <img src="images/ost960/real/r01-scaffold.jpg"
-               alt="Pracovník na lešení inštaluje osvetlenie — oranžové potrubie, industriálny strop"
-               loading="lazy">
-          <figcaption>Inštalácia osvetlenia</figcaption>
-        </figure>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-04-arch.jpg" data-caption="Klenba — prechod do ateliérovej časti">
+            <img src="images/ost960/current/current-04-arch.jpg" alt="Pohľad cez kamenný oblúk do ateliéru s astronautovou figúrou" loading="lazy">
+            <figcaption>Klenba — ateliér</figcaption>
+          </figure>
 
-        <figure class="real-item real-item--wide">
-          <img src="images/ost960/real/r10-wide.jpg"
-               alt="Celkový pohľad na priestor — lešenie, stoly, práca v plnom prúde"
-               loading="lazy">
-          <figcaption>Priestor vo výstavbe — celkový pohľad</figcaption>
-        </figure>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-05-studio.jpg" data-caption="Ateliér — astronaut ako symbol tvorby a priestoru">
+            <img src="images/ost960/current/current-05-studio.jpg" alt="Figúra astronauta v ateliéri so zábermi na stene a neonovým kruhom" loading="lazy">
+            <figcaption>Ateliér s astronautom</figcaption>
+          </figure>
 
-        <!-- Row 4: three equal -->
-        <figure class="real-item real-item--third">
-          <img src="images/ost960/real/r08-frame.jpg"
-               alt="Kovová konštrukcia v strede priestoru — žlté dvere, prirodzené svetlo z okien"
-               loading="lazy">
-          <figcaption>Výstavná konštrukcia</figcaption>
-        </figure>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-06-mural.jpg" data-caption="Maľba na stene — surová kreativita v priestore">
+            <img src="images/ost960/current/current-06-mural.jpg" alt="Veľkoformátová farebná maľba cez celú stenu vedľa oblúka" loading="lazy">
+            <figcaption>Maľba na stene</figcaption>
+          </figure>
 
-        <figure class="real-item real-item--third">
-          <img src="images/ost960/real/r07-empty.jpg"
-               alt="Prázdny hlavný priestor s rampou a vysávačom — potenciál bielych stien"
-               loading="lazy">
-          <figcaption>Čistý priestor — biela plocha pre umenie</figcaption>
-        </figure>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-12-workshop.jpg" data-caption="Dielňa a tvorba — komunita sa stretáva">
+            <img src="images/ost960/current/current-12-workshop.jpg" alt="Dvaja ľudia pracujú spolu na projekte v priestore, police s materiálom" loading="lazy">
+            <figcaption>Dielňa a tvorba</figcaption>
+          </figure>
 
-        <figure class="real-item real-item--third">
-          <img src="images/ost960/real/r02-overview.jpg"
-               alt="Prehľadný záber priestoru — klenba vzadu, farebné sedačky, emblem na stene"
-               loading="lazy">
-          <figcaption>Prehľad — tvar priestoru</figcaption>
-        </figure>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-03-entrance.jpg" data-caption="Vstupný trakt — žlté rámy, čistý biely priestor">
+            <img src="images/ost960/current/current-03-entrance.jpg" alt="Vstupná miestnosť s charakteristickými žltými rámami dverí" loading="lazy">
+            <figcaption>Vstupný trakt</figcaption>
+          </figure>
 
-      </div>
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-07-hall.jpg" data-caption="Hlavný priestor — biela plocha čakajúca na umenie">
+            <img src="images/ost960/current/current-07-hall.jpg" alt="Prázdny hlavný priestor, biele steny, dlaždičková podlaha" loading="lazy">
+            <figcaption>Priestor pred úpravou</figcaption>
+          </figure>
 
-      <div class="container">
-        <p class="real-note">
-          <span class="real-note-label">Máj 2025</span>
-          Budovanie prebieha. Priestor sa mení.
+          <figure class="gallery-item" data-lightbox data-src="images/ost960/current/current-08-structure.jpg" data-caption="Výstavná konštrukcia — základ pre inštalácie">
+            <img src="images/ost960/current/current-08-structure.jpg" alt="Kovová konštrukcia pre výstavy v strede priestoru, žlté dvere v pozadí" loading="lazy">
+            <figcaption>Výstavná konštrukcia</figcaption>
+          </figure>
+
+        </div>
+
+        <p class="gallery-note">
+          <span class="gallery-note-label">Máj 2025</span>
+          Budovanie prebieha. 12 záberov z aktívnej premeny priestoru.
         </p>
       </div>
     </section>
 
-    <!-- ─── ČO TU MÔŽE VZNIKNÚŤ ─── -->
-    <section id="priestor" class="section section-dark-alt">
+    <!-- ═══════════════════════════════════════════════════════════
+         03 — ČO TU MÔŽE VZNIKNÚŤ
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="priestor" class="section">
       <div class="container">
         <header class="section-header">
           <span class="sec-num" aria-hidden="true">03</span>
           <span class="sec-label">Čo tu môže vzniknúť</span>
         </header>
-
         <div class="activities-grid">
 
           <article class="activity-card">
@@ -280,133 +252,180 @@
       </div>
     </section>
 
-    <!-- ─── VÍZIA PRIESTORU (IMAGES) ─── -->
-    <section class="section section-vision">
+    <!-- ═══════════════════════════════════════════════════════════
+         04 — PRED A PO (before/after comparison)
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="pred-a-po" class="section section-dark-alt">
       <div class="container">
         <header class="section-header">
           <span class="sec-num" aria-hidden="true">04</span>
-          <span class="sec-label">Vízia priestoru</span>
+          <span class="sec-label">Priestor pred a po</span>
         </header>
+        <p class="section-intro">Štyri dvojice ukazujú kontrast medzi súčasným stavom a víziou toho, čím môže OST 960 byť.</p>
 
-        <p class="vision-intro">Päť vizualizácií ukazuje potenciál industriálneho priestoru — od galérie cez komunitné stretnutia až po živé večerné eventy.</p>
+        <div class="ba-pairs">
 
-        <div class="vision-grid">
+          <!-- Pair 1: Main hall -->
+          <div class="ba-pair">
+            <div class="ba-side ba-side--current">
+              <div class="ba-tag">Dnes</div>
+              <figure data-lightbox data-src="images/ost960/current/current-07-hall.jpg" data-caption="Hlavný priestor dnes — biela plocha čakajúca na umenie">
+                <img src="images/ost960/current/current-07-hall.jpg" alt="Prázdny hlavný priestor OST 960 pred úpravou" loading="lazy">
+                <figcaption>Hlavný priestor</figcaption>
+              </figure>
+            </div>
+            <div class="ba-arrow" aria-hidden="true">→</div>
+            <div class="ba-side ba-side--vision">
+              <div class="ba-tag ba-tag--vision">Vízia</div>
+              <figure data-lightbox data-src="images/ost960/vision/vision-01-gallery.png" data-caption="Vízia — galéria s výstavami, skulptúrami a komunitou">
+                <img src="images/ost960/vision/vision-01-gallery.png" alt="Vizualizácia hlavného priestoru ako galérie s výstavami" loading="lazy">
+                <figcaption>Galéria — denný provoz</figcaption>
+              </figure>
+            </div>
+          </div>
 
-          <figure class="vision-card vision-card--large">
-            <img
-              src="images/ost960/gallery-day.png"
-              alt="Svetlý výstavný priestor OST 960 s industriálnym stropom, neonovým logom a sochami na podstavcoch"
-              loading="lazy"
-              width="800" height="600"
-            >
-            <figcaption>
-              <span class="img-label">Galéria — denný režim</span>
-              <p>Svetlý výstavný priestor s industriálnou atmosférou, miestom pre umenie a pohyb ľudí.</p>
-            </figcaption>
-          </figure>
+          <!-- Pair 2: Arch -->
+          <div class="ba-pair">
+            <div class="ba-side ba-side--current">
+              <div class="ba-tag">Dnes</div>
+              <figure data-lightbox data-src="images/ost960/current/current-04-arch.jpg" data-caption="Klenba dnes — prechod do ateliérovej časti">
+                <img src="images/ost960/current/current-04-arch.jpg" alt="Kamenný oblúk v súčasnom stave priestoru" loading="lazy">
+                <figcaption>Klenba — súčasnosť</figcaption>
+              </figure>
+            </div>
+            <div class="ba-arrow" aria-hidden="true">→</div>
+            <div class="ba-side ba-side--vision">
+              <div class="ba-tag ba-tag--vision">Vízia</div>
+              <figure data-lightbox data-src="images/ost960/vision/vision-02-arch-gallery.png" data-caption="Vízia — klenba ako vstup do galérie s postermi a výstavou">
+                <img src="images/ost960/vision/vision-02-arch-gallery.png" alt="Vizualizácia klenby ako vstup do galérie" loading="lazy">
+                <figcaption>Klenba — galéria</figcaption>
+              </figure>
+            </div>
+          </div>
 
-          <figure class="vision-card">
-            <img
-              src="images/ost960/gallery-arch.png"
-              alt="Intímnejší výstavný priestor s kamenným oblúkom a výstavnými postermi"
-              loading="lazy"
-              width="600" height="500"
-            >
-            <figcaption>
-              <span class="img-label">Galéria — klenba</span>
-            </figcaption>
-          </figure>
+          <!-- Pair 3: Community -->
+          <div class="ba-pair">
+            <div class="ba-side ba-side--current">
+              <div class="ba-tag">Dnes</div>
+              <figure data-lightbox data-src="images/ost960/current/current-10-panorama.jpg" data-caption="Panoráma priestoru dnes — vo výstavbe">
+                <img src="images/ost960/current/current-10-panorama.jpg" alt="Panoráma priestoru počas výstavby" loading="lazy">
+                <figcaption>Priestor vo výstavbe</figcaption>
+              </figure>
+            </div>
+            <div class="ba-arrow" aria-hidden="true">→</div>
+            <div class="ba-side ba-side--vision">
+              <div class="ba-tag ba-tag--vision">Vízia</div>
+              <figure data-lightbox data-src="images/ost960/vision/vision-03-community.png" data-caption="Vízia — komunitný priestor, ziny, káva, ateliér, ľudia">
+                <img src="images/ost960/vision/vision-03-community.png" alt="Vizualizácia komunitného priestoru so stolmi, zine stojanom a kaviarňou" loading="lazy">
+                <figcaption>Komunitný priestor</figcaption>
+              </figure>
+            </div>
+          </div>
 
-          <figure class="vision-card">
-            <img
-              src="images/ost960/community.png"
-              alt="Komunitný priestor s ľuďmi pracujúcimi za stolmi, zine stojanom a kaviarňou"
-              loading="lazy"
-              width="600" height="500"
-            >
-            <figcaption>
-              <span class="img-label">Komunitný priestor — denný provoz</span>
-            </figcaption>
-          </figure>
+          <!-- Pair 4: Evening event -->
+          <div class="ba-pair">
+            <div class="ba-side ba-side--current">
+              <div class="ba-tag">Dnes</div>
+              <figure data-lightbox data-src="images/ost960/current/current-09-team.jpg" data-caption="Tím v priestore — začiatok niečoho veľkého">
+                <img src="images/ost960/current/current-09-team.jpg" alt="Tím OST 960 pracuje v priestore" loading="lazy">
+                <figcaption>Tím v priestore</figcaption>
+              </figure>
+            </div>
+            <div class="ba-arrow" aria-hidden="true">→</div>
+            <div class="ba-side ba-side--vision">
+              <div class="ba-tag ba-tag--vision">Vízia</div>
+              <figure data-lightbox data-src="images/ost960/vision/vision-04-vernisaz.png" data-caption="Vízia — vernisáž, ľudia, umenie, teplá atmosféra">
+                <img src="images/ost960/vision/vision-04-vernisaz.png" alt="Vizualizácia vernisáže s ľuďmi a výstavami" loading="lazy">
+                <figcaption>Vernisáž — živý priestor</figcaption>
+              </figure>
+            </div>
+          </div>
 
         </div>
-
       </div>
     </section>
 
-    <!-- ─── TRI VIZUÁLNE SMERY ─── -->
-    <section class="section section-moods">
+    <!-- ═══════════════════════════════════════════════════════════
+         05 — VÍZIA OST 960
+    ═══════════════════════════════════════════════════════════ -->
+    <section id="vizia" class="section section-vision-full">
       <div class="container">
         <header class="section-header">
           <span class="sec-num" aria-hidden="true">05</span>
-          <span class="sec-label">Tri vizuálne smery</span>
+          <span class="sec-label">Vízia OST 960</span>
         </header>
+        <p class="section-intro">Päť obrazov toho, čím môže OST 960 byť — od galérie a vernisáží cez komunitné dielne až po živé nočné eventy.</p>
       </div>
 
-      <div class="moods-grid">
+      <div class="vision-mood-grid">
 
-        <article class="mood-card">
-          <div class="mood-img-wrap">
-            <img
-              src="images/ost960/underground.png"
-              alt="Temná industriálna noc, červený neon OST 960, dav ľudí pred priestorom"
-              loading="lazy"
-              width="900" height="600"
-            >
-            <div class="mood-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="mood-body">
-            <span class="mood-num" aria-hidden="true">01</span>
-            <h3 class="mood-title">Underground scéna</h3>
-            <p class="mood-desc">Raw mood, posters, neon, večerné eventy, subkultúra.</p>
+        <article class="vision-mood-card vision-mood-card--large">
+          <figure data-lightbox data-src="images/ost960/vision/vision-01-gallery.png" data-caption="Galéria — výstavy, skulptúry, komunitný provoz">
+            <img src="images/ost960/vision/vision-01-gallery.png" alt="Svetlý výstavný priestor OST 960 s industriálnym stropom, neonovým logom a sochami na podstavcoch" loading="lazy">
+          </figure>
+          <div class="vision-mood-body">
+            <span class="vision-mood-num" aria-hidden="true">01</span>
+            <h3 class="vision-mood-title">Galéria — denný provoz</h3>
+            <p class="vision-mood-desc">Výstavy, skulptúry, posterová kultúra a otvorený priestor pre umenie.</p>
           </div>
         </article>
 
-        <article class="mood-card">
-          <div class="mood-img-wrap">
-            <img
-              src="images/ost960/vernisaz.png"
-              alt="Večerná vernisáž — skupiny ľudí diskutujú pri umení, teplé svetlo"
-              loading="lazy"
-              width="900" height="600"
-            >
-            <div class="mood-overlay" aria-hidden="true"></div>
-          </div>
-          <div class="mood-body">
-            <span class="mood-num" aria-hidden="true">02</span>
-            <h3 class="mood-title">Vernisáž / otvorený event</h3>
-            <p class="mood-desc">Večerný kultúrny program, ľudia, umenie, rozhovory.</p>
+        <article class="vision-mood-card">
+          <figure data-lightbox data-src="images/ost960/vision/vision-02-arch-gallery.png" data-caption="Klenba ako galéria — intímny výstavný priestor">
+            <img src="images/ost960/vision/vision-02-arch-gallery.png" alt="Intímnejší výstavný priestor s kamenným oblúkom a výstavnými postermi" loading="lazy">
+          </figure>
+          <div class="vision-mood-body">
+            <span class="vision-mood-num" aria-hidden="true">02</span>
+            <h3 class="vision-mood-title">Klenba — galéria</h3>
+            <p class="vision-mood-desc">Historická klenba ako vstup do intímneho výstavného priestoru.</p>
           </div>
         </article>
 
-        <article class="mood-card">
-          <div class="mood-img-wrap">
-            <img
-              src="images/ost960/community.png"
-              alt="Denný komunitný priestor — workshopy, ziny, tvorba, káva"
-              loading="lazy"
-              width="900" height="600"
-            >
-            <div class="mood-overlay" aria-hidden="true"></div>
+        <article class="vision-mood-card">
+          <figure data-lightbox data-src="images/ost960/vision/vision-05-underground.png" data-caption="Underground — nočný event, červený neon, dav, subkultúra">
+            <img src="images/ost960/vision/vision-05-underground.png" alt="Temná industriálna noc, červený neon OST 960, dav ľudí pred priestorom" loading="lazy">
+          </figure>
+          <div class="vision-mood-body">
+            <span class="vision-mood-num" aria-hidden="true">03</span>
+            <h3 class="vision-mood-title">Underground — nočný event</h3>
+            <p class="vision-mood-desc">Raw energia, neon, dav, subkultúra. Živý nočný program.</p>
           </div>
-          <div class="mood-body">
-            <span class="mood-num" aria-hidden="true">03</span>
-            <h3 class="mood-title">Kreatívna komunita</h3>
-            <p class="mood-desc">Denný komunitný priestor, workshopy, ziny, káva, tvorba.</p>
+        </article>
+
+        <article class="vision-mood-card">
+          <figure data-lightbox data-src="images/ost960/vision/vision-04-vernisaz.png" data-caption="Vernisáž — ľudia, umenie, rozhovory, teplá atmosféra">
+            <img src="images/ost960/vision/vision-04-vernisaz.png" alt="Večerná vernisáž, skupiny ľudí diskutujú pri umení, teplé svetlo" loading="lazy">
+          </figure>
+          <div class="vision-mood-body">
+            <span class="vision-mood-num" aria-hidden="true">04</span>
+            <h3 class="vision-mood-title">Vernisáž</h3>
+            <p class="vision-mood-desc">Otvorenie výstavy, ľudia, umenie, rozhovory a komunita.</p>
+          </div>
+        </article>
+
+        <article class="vision-mood-card">
+          <figure data-lightbox data-src="images/ost960/vision/vision-03-community.png" data-caption="Komunitný priestor — ziny, dielne, káva, tvorba počas dňa">
+            <img src="images/ost960/vision/vision-03-community.png" alt="Komunitný priestor s ľuďmi pracujúcimi za stolmi, zine stojanom a kaviarňou" loading="lazy">
+          </figure>
+          <div class="vision-mood-body">
+            <span class="vision-mood-num" aria-hidden="true">05</span>
+            <h3 class="vision-mood-title">Kreatívna komunita</h3>
+            <p class="vision-mood-desc">Denný komunitný priestor — workshopy, ziny, tvorba, káva.</p>
           </div>
         </article>
 
       </div>
     </section>
 
-    <!-- ─── PROGRAMOVÝ POTENCIÁL ─── -->
+    <!-- ═══════════════════════════════════════════════════════════
+         06 — PROGRAMOVÝ POTENCIÁL
+    ═══════════════════════════════════════════════════════════ -->
     <section id="program" class="section section-program">
       <div class="container">
         <header class="section-header">
           <span class="sec-num" aria-hidden="true">06</span>
           <span class="sec-label">Programový potenciál</span>
         </header>
-
         <ul class="program-grid" role="list">
           <li class="program-item"><span class="prog-dot" aria-hidden="true"></span>výstavy</li>
           <li class="program-item"><span class="prog-dot" aria-hidden="true"></span>vernisáže</li>
@@ -422,29 +441,30 @@
       </div>
     </section>
 
-    <!-- ─── PREČO TO MÁ VÝZNAM ─── -->
+    <!-- ═══════════════════════════════════════════════════════════
+         07 — PREČO TO MÁ VÝZNAM
+    ═══════════════════════════════════════════════════════════ -->
     <section class="section section-why">
       <div class="container container--narrow">
         <header class="section-header section-header--center">
           <span class="sec-num" aria-hidden="true">07</span>
           <span class="sec-label">Prečo to má význam</span>
         </header>
-
         <p class="why-text">Bratislava potrebuje dostupné nezávislé priestory, ktoré dávajú šancu mladým autorom, subkultúrnej scéne a komunitám mimo klasických inštitúcií. OST 960 môže byť miestom, ktoré prepája verejnosť, lokálnych tvorcov a mestskú kultúru v autentickom industriálnom priestore.</p>
       </div>
     </section>
 
-    <!-- ─── PODPORA PROJEKTU ─── -->
+    <!-- ═══════════════════════════════════════════════════════════
+         08 — PODPORA PROJEKTU
+    ═══════════════════════════════════════════════════════════ -->
     <section id="podpora" class="section section-support">
       <div class="container">
         <header class="section-header">
           <span class="sec-num" aria-hidden="true">08</span>
           <span class="sec-label">Podpora projektu</span>
         </header>
-
         <div class="support-inner">
           <p class="support-text">Hľadáme partnerov, podporovateľov, dobrovoľníkov, umelcov a ľudí, ktorí chcú pomôcť premeniť OST 960 na živý kultúrny priestor v Karlovej Vsi.</p>
-
           <ul class="roles-list" role="list" aria-label="Hľadáme">
             <li class="role-tag">Partneri</li>
             <li class="role-tag">Podporovatelia</li>
@@ -456,7 +476,9 @@
       </div>
     </section>
 
-    <!-- ─── KONTAKT ─── -->
+    <!-- ═══════════════════════════════════════════════════════════
+         KONTAKT
+    ═══════════════════════════════════════════════════════════ -->
     <section id="kontakt" class="section section-contact">
       <div class="container">
         <div class="contact-inner">
@@ -490,6 +512,20 @@
       </div>
     </div>
   </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       LIGHTBOX
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Fotografia" hidden>
+    <button class="lb-close" id="lbClose" aria-label="Zatvoriť">&times;</button>
+    <button class="lb-prev" id="lbPrev" aria-label="Predošlá fotografia">&#8592;</button>
+    <button class="lb-next" id="lbNext" aria-label="Nasledujúca fotografia">&#8594;</button>
+    <div class="lb-backdrop" id="lbBackdrop"></div>
+    <figure class="lb-figure">
+      <img id="lbImg" src="" alt="" class="lb-img">
+      <figcaption id="lbCaption" class="lb-caption"></figcaption>
+    </figure>
+  </div>
 
   <script src="script.js"></script>
 </body>
