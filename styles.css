@@ -396,6 +396,33 @@ figure { margin: 0; }
   50%       { transform: translateY(6px); }
 }
 
+/* Hero canvas — OST 960 motion emblem */
+#heroCanvas {
+  position: absolute;
+  right: clamp(-80px, 2vw, 60px);
+  top: 50%;
+  transform: translateY(-48%);
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.85;
+  width: clamp(320px, 44vw, 680px);
+  height: clamp(320px, 44vw, 680px);
+}
+@media (max-width: 900px) {
+  #heroCanvas {
+    right: -30%;
+    top: auto;
+    bottom: 4rem;
+    transform: none;
+    opacity: 0.25;
+    width: 80vw;
+    height: 80vw;
+  }
+}
+@media (max-width: 560px) {
+  #heroCanvas { display: none; }
+}
+
 /* ═══════════════════════════════════════════════════════════
    O PROJEKTE
 ═══════════════════════════════════════════════════════════ */
@@ -525,50 +552,36 @@ figure { margin: 0; }
   line-height: 1.7;
 }
 
+/* Vision grid: explicit height solves span-2 sizing completely */
 .vision-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: repeat(2, 1fr);
   gap: 3px;
+  height: clamp(420px, 68vh, 780px);
   background: var(--line);
 }
 @media (max-width: 768px) {
-  .vision-grid { grid-template-columns: 1fr; }
+  .vision-grid { grid-template-columns: 1fr; grid-template-rows: none; height: auto; }
 }
 
 .vision-card {
   position: relative;
   overflow: hidden;
   background: var(--ink-mid);
+  min-height: 0;
 }
-.vision-card--large {
-  grid-row: span 2;
-  /* stretch to fill both spanned rows */
-  display: flex;
-  flex-direction: column;
-}
+.vision-card--large { grid-row: span 2; }
 
-/* Small cards: aspect-ratio drives height, no explicit height */
-.vision-card:not(.vision-card--large) img {
+.vision-card img {
   width: 100%;
-  aspect-ratio: 4/3;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-/* Large card: fills the full spanned height via flex */
-.vision-card--large img {
-  width: 100%;
-  flex: 1;
-  min-height: 300px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
 @media (max-width: 768px) {
-  .vision-card--large { display: block; }
-  .vision-card--large img { width: 100%; aspect-ratio: 4/3; min-height: 0; flex: none; }
+  .vision-card img { height: auto; aspect-ratio: 4/3; }
 }
 .vision-card:hover img { transform: scale(1.04); }
 
@@ -921,22 +934,22 @@ figure { margin: 0; }
   margin-top: 0;
 }
 
-/* Layout variants */
-.real-item--wide    { grid-column: span 2; }
-.real-item--portrait{ grid-column: span 1; }
-.real-item--third   { grid-column: span 1; }
+/* Layout variants — all landscape source photos */
+.real-item--wide     { grid-column: span 2; }
+.real-item--standard { grid-column: span 1; }
+.real-item--third    { grid-column: span 1; }
 
 @media (max-width: 900px) {
   .real-grid { grid-template-columns: repeat(2, 1fr); }
-  .real-item--wide    { grid-column: span 2; }
-  .real-item--portrait{ grid-column: span 1; }
-  .real-item--third   { grid-column: span 1; }
+  .real-item--wide     { grid-column: span 2; }
+  .real-item--standard { grid-column: span 1; }
+  .real-item--third    { grid-column: span 1; }
 }
 @media (max-width: 560px) {
   .real-grid { grid-template-columns: 1fr; }
   .real-item--wide,
-  .real-item--portrait,
-  .real-item--third { grid-column: span 1; }
+  .real-item--standard,
+  .real-item--third    { grid-column: span 1; }
 }
 
 /* Each figure */
@@ -946,7 +959,7 @@ figure { margin: 0; }
   background: var(--ink-mid);
   cursor: default;
 }
-/* Base: width fills column, aspect-ratio sets height — no height:100% conflict */
+/* width fills column, aspect-ratio sets height — no height:100% conflict */
 .real-item img {
   width: 100%;
   object-fit: cover;
@@ -956,12 +969,8 @@ figure { margin: 0; }
   filter: saturate(0.75) brightness(0.9);
 }
 .real-item--wide img     { aspect-ratio: 16/9; }
-.real-item--portrait img { aspect-ratio: 2/3; }
+.real-item--standard img { aspect-ratio: 4/3; }
 .real-item--third img    { aspect-ratio: 4/3; }
-
-@media (max-width: 560px) {
-  .real-item img { aspect-ratio: 4/3 !important; }
-}
 
 .real-item:hover img {
   transform: scale(1.04);
