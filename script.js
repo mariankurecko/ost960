@@ -281,28 +281,11 @@
       ctx.fill();
     });
 
-    // OST text
-    var fOst = Math.round(R*0.5);
-    ctx.font='700 '+fOst+'px \'Space Grotesk\', sans-serif';
-    ctx.textAlign='center'; ctx.textBaseline='alphabetic';
-    ctx.shadowColor='rgba(201,74,28,0.35)'; ctx.shadowBlur=R*0.15;
-    ctx.fillStyle='rgba(240,230,211,0.13)';
-    ctx.fillText('OST', cx, cy - fOst*0.1);
-    ctx.shadowBlur=0;
-
-    // 960 text
-    var f960 = Math.round(R*0.54);
-    ctx.font='700 '+f960+'px \'Space Grotesk\', sans-serif';
-    ctx.shadowColor='rgba(201,74,28,0.45)'; ctx.shadowBlur=R*0.2;
-    ctx.fillStyle='rgba(201,74,28,0.22)';
-    ctx.fillText('960', cx, cy + f960*0.9);
-    ctx.shadowBlur=0;
-
     // Centre pulse
     var pulse = 0.5+Math.sin(t*2.2)*0.5;
     ctx.fillStyle='rgba(201,74,28,'+(0.4+pulse*0.35)+')';
     ctx.beginPath();
-    ctx.arc(cx, cy+(f960*0.9-fOst*0.1)/2 - f960*0.45+fOst*0.05, 2.5+pulse*3, 0, Math.PI*2);
+    ctx.arc(cx, cy, 2.5+pulse*3, 0, Math.PI*2);
     ctx.fill();
     ctx.strokeStyle='rgba(201,74,28,'+(0.04+pulse*0.06)+')';
     ctx.lineWidth=1;
